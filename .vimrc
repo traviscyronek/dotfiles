@@ -30,6 +30,8 @@ call vundle#end()
 " Filetype, Spell Check, and Encoding
 filetype plugin on
 filetype indent on
+autocmd filetype latex,tex let b:did_indent=1
+autocmd filetype latex,tex setlocal indentexpr=
 autocmd filetype latex,tex setlocal spell spelllang=en_us
 set encoding=utf-8
 
