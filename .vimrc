@@ -1,5 +1,5 @@
-" Author: Travis Cyronek
-" Date: 3 August 2017
+" Author:  Travis Cyronek
+" Date:    3 August 2017
 " Purpose: Vim configuration settings
 
 
@@ -17,6 +17,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jpalardy/vim-slime'
 Plugin 'vim-latex/vim-latex'
@@ -177,6 +178,7 @@ let g:slime_target="conemu"
 " ----- Vim-Latex (aka Latex Suite) ----- " {{{
 
 let g:Tex_flavor="latex"
+let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
 
 " set target format to pdf and tell what reader to use
 let g:Tex_DefaultTargetFormat="pdf"
