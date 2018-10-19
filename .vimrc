@@ -151,6 +151,7 @@ let g:airline_symbols.linenr = ''
 " ----- NerdTree ----- " {{{
 
 let g:NERDTreeWinPos="right"
+let g:NERDTreeWinSize=35
 
 " }}}
 
