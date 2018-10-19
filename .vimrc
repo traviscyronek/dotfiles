@@ -77,7 +77,7 @@ set t_Co=256          " let it use all colors
 
 " Window
 set cmdheight=2          " command line height
-set columns=180 lines=65 " default size of window (when not in fullscreen)
+set columns=190 lines=65 " default size of window (when not in fullscreen)
 set laststatus=2         " status bar open by default
 set lazyredraw           " don't redraw mid macro
 set number               " row numbering
