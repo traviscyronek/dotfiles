@@ -1,5 +1,5 @@
 " Author:  Travis Cyronek
-" Date:    3 August 2017
+" Date:    18 October 2018
 " Purpose: Vim configuration settings
 
 
@@ -21,6 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jpalardy/vim-slime'
 Plugin 'vim-latex/vim-latex'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 
 " }}}
@@ -76,7 +77,7 @@ set t_Co=256          " let it use all colors
 
 " Window
 set cmdheight=2          " command line height
-set columns=120 lines=65 " default size of window (when not in fullscreen)
+set columns=180 lines=65 " default size of window (when not in fullscreen)
 set laststatus=2         " status bar open by default
 set lazyredraw           " don't redraw mid macro
 set number               " row numbering
@@ -90,16 +91,17 @@ set guioptions -=T       " removes the toolbar
 
 " ----- Custom Key Bindings ----- " {{{
 
-" F2 toggles Nerd Tree and LEADER-F2 toggles command to list/switch buffers
-nnoremap <f2> :NERDTreeToggle<cr>
-nnoremap <leader><f2> :buffers<cr>:buffer<Space>
+" buffer switch, nerd tree toggle, tagbar toggle
+nnoremap <f2> :buffers<cr>:buffer<Space>
+nnoremap <leader><f2> :NERDTreeToggle<cr>
+nnoremap <a-f2> :TagbarToggle<cr>
 
-" F3 and LEADER-F3 toggle syntastic syntax checking
+" syntastic syntax toggles, delete trailing whitespace
 nnoremap <f3> :SyntasticCheck<cr>
 nnoremap <leader><f3> :SyntasticReset<cr>
 nnoremap <a-f3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><cr>
 
-" F4 and LEADER-F4 copile latex document and open viewer
+" compile latex, open viewer
 nnoremap <f4> :call Tex_RunLaTeX()<cr>
 nnoremap <leader><f4> :call Tex_ViewLaTeX()<cr>
 
