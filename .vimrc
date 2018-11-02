@@ -35,6 +35,7 @@ filetype indent on
 autocmd filetype latex,tex let b:did_indent=1
 autocmd filetype latex,tex setlocal indentexpr=
 autocmd filetype latex,tex setlocal spell spelllang=en_us
+autocmd filetype qf wincmd J
 set encoding=utf-8
 
 " Searching
