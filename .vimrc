@@ -1,6 +1,6 @@
 " Author:  Travis Cyronek
 " Date:    18 October 2018
-" Purpose: Vim configuration settings
+" Purpose: vim configuration settings
 
 
 " ----- Plugin Management (Vundle) ----- " {{{
