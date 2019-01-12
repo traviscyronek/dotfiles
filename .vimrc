@@ -22,6 +22,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'jpalardy/vim-slime'
 Plugin 'vim-latex/vim-latex'
 Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-smooth-scroll'
 call vundle#end()
 
 " }}}
@@ -105,6 +106,10 @@ nnoremap <a-f3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><cr>
 " compile latex, open viewer
 nnoremap <f4> :call Tex_RunLaTeX()<cr>
 nnoremap <leader><f4> :call Tex_ViewLaTeX()<cr>
+
+" smooth scrolling
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 
 " }}}
 
