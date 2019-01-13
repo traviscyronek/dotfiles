@@ -78,15 +78,17 @@ set background=dark   " background dark / light
 set t_Co=256          " let it use all colors
 
 " Window
-set cmdheight=2          " command line height
-set columns=190 lines=65 " default size of window (when not in fullscreen)
-set laststatus=2         " status bar open by default
-set lazyredraw           " don't redraw mid macro
-set number               " row numbering
-set relativenumber       " numbering is relative to selected line
-set numberwidth=5        " line-number margin width
-set guioptions -=m       " removes the menubar
-set guioptions -=T       " removes the toolbar
+set cmdheight=2             " command line height
+set columns=190 lines=65    " default size of window (when not in fullscreen)
+set laststatus=2            " status bar open by default
+set lazyredraw              " don't redraw mid macro
+set number                  " row numbering
+set relativenumber          " numbering is relative to selected line
+set numberwidth=5           " line-number margin width
+set guioptions -=m          " removes the menubar
+set guioptions -=T          " removes the toolbar
+autocmd VimEnter * NERDTree " auto-open NERDTree
+autocmd VimEnter * Tagbar   " auto-open Tagbar
 
 " }}}
 
