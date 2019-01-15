@@ -175,7 +175,10 @@ nnoremap <f4> :call Tex_RunLaTeX()<cr>
 nnoremap <leader><f4> :call Tex_ViewLaTeX()<cr>
 
 " smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<cr>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<cr>
+
+" delete buffer without messing up window configuration
+nnoremap \d :bp<cr>:bd #<cr>
 
 " }}}
