@@ -1,6 +1,6 @@
 " Author:  Travis Cyronek
-" Date:    18 October 2018
-" Purpose: vim configuration settings
+" Date:    14 January 2019
+" Purpose: Vim configuration settings
 
 
 " ----- Plugin Management (Vundle) ----- " {{{
@@ -11,18 +11,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'sickill/vim-monokai'
+Plugin 'jpalardy/vim-slime'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'powerline/fonts'
+Plugin 'sickill/vim-monokai'
+Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-smooth-scroll'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'jpalardy/vim-slime'
 Plugin 'vim-latex/vim-latex'
-Plugin 'majutsushi/tagbar'
-Plugin 'terryma/vim-smooth-scroll'
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 
 " }}}
@@ -60,6 +59,31 @@ set splitright        " split window to the right
 set backspace=indent,eol,start " backspace acts as normal
 set clipboard=unnamed          " vim saves to / takes from the system clipboard
 
+" Syntastic (Plugin)
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
+
+" Vim-Latex (Plugin)
+let g:tex_flavor="latex"
+let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
+let g:Tex_DefaultTargetFormat="pdf"               " set target format to pdf and tell what reader to use
+let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf"
+let g:Tex_ViewRule_pdf="Preview"
+let g:Tex_GotoError=0                             " do not go to the location of the first error after compile
+let Tex_FoldedSections=""                         " disable the automatic folding upon opening .tex file
+let Tex_FoldedEnvironments=""
+let Tex_FoldedMisc=""
+
+" Vim-Slime (Plugin)
+"let g:slime_target="conemu"
+let g:slime_target="tmux"
+
 " }}}
 
 
@@ -69,7 +93,7 @@ set clipboard=unnamed          " vim saves to / takes from the system clipboard
 syntax on                                          " enables syntax processing
 set cursorline                                     " highlight current line
 set cursorcolumn                                   " highlight current column
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h10 " must have unicode chars
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12 " must have unicode chars
 set showmatch                                      " highlight matching for {[()]}
 
 " Color
@@ -79,16 +103,57 @@ set t_Co=256          " let it use all colors
 
 " Window
 set cmdheight=2             " command line height
-set columns=190 lines=65    " default size of window (when not in fullscreen)
+set columns=213 lines=94    " default size of window (when not in fullscreen)
 set laststatus=2            " status bar open by default
 set lazyredraw              " don't redraw mid macro
 set number                  " row numbering
 set relativenumber          " numbering is relative to selected line
 set numberwidth=5           " line-number margin width
-set guioptions -=m          " removes the menubar
-set guioptions -=T          " removes the toolbar
+if has("gui_running")
+    set guioptions -=m      " removes the menubar
+    set guioptions -=T      " removes the toolbar
+endif
+
+" Airline (Plugin)
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
+let g:airline_powerline_fonts=1        " allow it to use powerline fonts / symbols
+if !exists('g:airline_symbols')        " makes sure it doesn't overwrite stuff
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'           " unicode symbols
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = ''           " powerline symbols
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" NERDTree (Plugin)
+let g:NERDTreeWinPos="left"
+let g:NerdTreeWinSize=35
+let g:NERDTreeNodeDelimiter = "\u00a0"
 autocmd VimEnter * NERDTree " auto-open NERDTree
-autocmd VimEnter * Tagbar   " auto-open Tagbar
+
+" Tagbar (Plugin)
+autocmd VimEnter * Tagbar " auto-open Tagbar
 
 " }}}
 
@@ -112,96 +177,5 @@ nnoremap <leader><f4> :call Tex_ViewLaTeX()<cr>
 " smooth scrolling
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
-
-" }}}
-
-
-" ----- Airline ----- " {{{
-
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
-let g:airline_powerline_fonts=1    " allow it to use powerline fonts / symbols
-if !exists('g:airline_symbols')    " makes sure it doesn't overwrite stuff
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" }}}
-
-
-" ----- NerdTree ----- " {{{
-
-let g:NERDTreeWinPos="right"
-let g:NERDTreeWinSize=35
-
-" }}}
-
-
-" ----- Syntastic ----- " {{{
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
-
-" }}}
-
-
-" ----- Vim-Slime ----- " {{{
-
-let g:slime_target="conemu"
-"let g:slime_target="tmux"
-
-" }}}
-
-
-" ----- Vim-Latex (aka Latex Suite) ----- " {{{
-
-let g:Tex_flavor="latex"
-let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
-
-" set target format to pdf and tell what reader to use
-let g:Tex_DefaultTargetFormat="pdf"
-let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf"
-let g:Tex_ViewRule_pdf="SumatraPDF"
-
-" do not go to the location of the first error after compile
-let g:Tex_GotoError=0
-
-" disable the automatic folding upon opening .tex file
-let Tex_FoldedSections=""
-let Tex_FoldedEnvironments=""
-let Tex_FoldedMisc=""
 
 " }}}
