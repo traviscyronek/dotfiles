@@ -1,3 +1,4 @@
+" File:    .vimrc
 " Author:  Travis Cyronek
 " Date:    14 January 2019
 " Purpose: Vim configuration settings
