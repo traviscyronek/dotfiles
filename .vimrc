@@ -1,6 +1,6 @@
 " File:    .vimrc
 " Author:  Travis Cyronek
-" Date:    14 January 2019
+" Date:    22 January 2019
 " Purpose: Vim configuration settings
 
 
@@ -14,11 +14,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jpalardy/vim-slime'
 Plugin 'kien/ctrlp.vim'
+Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 Plugin 'powerline/fonts'
 Plugin 'sickill/vim-monokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-smooth-scroll'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-latex/vim-latex'
@@ -82,7 +84,6 @@ let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 
 " Vim-Slime (Plugin)
-"let g:slime_target="conemu"
 let g:slime_target="tmux"
 
 " }}}
@@ -97,13 +98,13 @@ set cursorcolumn                                   " highlight current column
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12 " must have unicode chars
 set showmatch                                      " highlight matching for {[()]}
 
-" Color
-colorscheme solarized " a nice color scheme
-set background=dark   " background dark / light
-set t_Co=256          " let it use all colors
+" Colors
+colorscheme solarized                    " a nice color scheme
+set background=dark                      " background dark / light
+set t_Co=256                             " let it use all colors
 
 " Window
-set cmdheight=2             " command line height
+set cmdheight=1             " command line height
 set columns=213 lines=94    " default size of window (when not in fullscreen)
 set laststatus=2            " status bar open by default
 set lazyredraw              " don't redraw mid macro
@@ -150,11 +151,21 @@ let g:airline_symbols.linenr = ''
 " NERDTree (Plugin)
 let g:NERDTreeWinPos="left"
 let g:NerdTreeWinSize=35
-let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeNodeDelimiter="\u00a0"
+let gNERDTreeMapMenu='M'
 autocmd VimEnter * NERDTree " auto-open NERDTree
 
 " Tagbar (Plugin)
 autocmd VimEnter * Tagbar " auto-open Tagbar
+
+" Vim-Signature (Plugin)
+if has("gui_running")
+    highlight SignColumn guibg=none ctermbg=none
+    highlight SignatureMarkText guibg=none guifg=White
+else
+    highlight SignColumn ctermbg=none
+    highlight SignatureMarkText ctermbg=none ctermfg=White
+endif
 
 " }}}
 
@@ -162,24 +173,24 @@ autocmd VimEnter * Tagbar " auto-open Tagbar
 " ----- Custom Key Bindings ----- " {{{
 
 " buffer switch, nerd tree toggle, tagbar toggle
-nnoremap <f2> :buffers<cr>:buffer<Space>
-nnoremap <leader><f2> :NERDTreeToggle<cr>
-nnoremap <a-f2> :TagbarToggle<cr>
+nnoremap <F2> :buffers<CR>:buffer<Space>
+nnoremap <Leader><F2> :TagbarToggle<CR>
+nnoremap <Tab><F2> :NERDTreeToggle<CR>
 
 " syntastic syntax toggles, delete trailing whitespace
-nnoremap <f3> :SyntasticCheck<cr>
-nnoremap <leader><f3> :SyntasticReset<cr>
-nnoremap <a-f3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><cr>
+nnoremap <F3> :SyntasticCheck<CR>
+nnoremap <Leader><F3> :SyntasticReset<CR>
+nnoremap <Tab><F3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><CR>
 
 " compile latex, open viewer
-nnoremap <f4> :call Tex_RunLaTeX()<cr>
-nnoremap <leader><f4> :call Tex_ViewLaTeX()<cr>
+nnoremap <F4> :call Tex_RunLaTeX()<CR>
+nnoremap <Leader><F4> :call Tex_ViewLaTeX()<CR>
 
 " smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<cr>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<cr>
+noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 
 " delete buffer without messing up window configuration
-nnoremap <leader>d :bp<cr>:bd #<cr>
+nnoremap <Leader>b :bp<CR>:bd #<CR>
 
 " }}}
