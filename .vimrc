@@ -150,7 +150,7 @@ let g:airline_symbols.linenr = ''
 
 " NERDTree (Plugin)
 let g:NERDTreeWinPos="left"
-let g:NerdTreeWinSize=35
+let g:NERDTreeWinSize=35
 let g:NERDTreeNodeDelimiter="\u00a0"
 let g:NERDTreeMapMenu='M'
 autocmd VimEnter * NERDTree " auto-open NERDTree
