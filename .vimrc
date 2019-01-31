@@ -25,6 +25,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-latex/vim-latex'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'Yggdroot/indentLine'
 call vundle#end()
 
 " }}}
@@ -85,6 +86,9 @@ let Tex_FoldedMisc=""
 
 " Vim-Slime (Plugin)
 let g:slime_target="tmux"
+
+" indentLine (Plugin)
+let g:indentLine_setColors=0 " 0 means don't overwrite colorscheme
 
 " }}}
 
