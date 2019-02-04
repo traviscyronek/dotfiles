@@ -152,24 +152,23 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-" NERDTree (Plugin)
+" NERDTree and TagBar (Plugins)
 let g:NERDTreeWinPos="left"
 let g:NERDTreeWinSize=35
 let g:NERDTreeNodeDelimiter="\u00a0"
 let g:NERDTreeMapMenu='M'
-autocmd VimEnter * NERDTree " auto-open NERDTree
-
-" Tagbar (Plugin)
-autocmd VimEnter * Tagbar " auto-open Tagbar
+let g:tagbar_width=35
+let g:tagbar_autofocus=0
+let g:tagbar_ctags_bin='/usr/local/Cellar/universal-ctags/HEAD-45968ef/bin/ctags'
+"if has('gui_running')
+"else
+"    autocmd VimEnter * NERDTree " auto-open NERDTree
+"    autocmd VimEnter * Tagbar   " auto-open Tagbar
+"endif
 
 " Vim-Signature (Plugin)
-if has("gui_running")
-    highlight SignColumn guibg=none ctermbg=none
-    highlight SignatureMarkText guibg=none guifg=White
-else
-    highlight SignColumn ctermbg=none
-    highlight SignatureMarkText ctermbg=none ctermfg=White
-endif
+highlight SignColumn ctermbg=none
+highlight SignatureMarkText ctermbg=none ctermfg=White
 
 " }}}
 
