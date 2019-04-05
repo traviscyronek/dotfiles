@@ -43,26 +43,26 @@ autocmd filetype qf wincmd J
 set encoding=utf-8
 
 " Searching
-set hlsearch  " highlight matches
-set incsearch " search as characters are entered
-set wildmenu  " visual autocomplete menu for commands
+set hlsearch                                      " highlight matches
+set incsearch                                     " search as characters are entered
+set wildmenu                                      " visual autocomplete menu for commands
 
 " Tabs
-set expandtab     " sets tabs to spaces
-set softtabstop=4 " number of spaces in tab when editing
-set tabstop=4     " number of visual spaces per tab
-set shiftwidth=4  " make indents a single tab
+set expandtab                                     " sets tabs to spaces
+set softtabstop=4                                 " number of spaces in tab when editing
+set tabstop=4                                     " number of visual spaces per tab
+set shiftwidth=4                                  " make indents a single tab
 
 " Folding and Splitting
-set foldenable        " enables folding
-set foldmethod=marker " create folds with {{{ }}}
-set splitbelow        " split window below
-set splitright        " split window to the right
+set foldenable                                    " enables folding
+set foldmethod=marker                             " create folds with {{{ }}}
+set splitbelow                                    " split window below
+set splitright                                    " split window to the right
 
 " Miscellany
-set backspace=indent,eol,start " backspace acts as normal
-set clipboard=unnamed          " vim saves to / takes from the system clipboard
-set conceallevel=0             " don't try to conceal commands for brevity (problem mostly for latex files)
+set backspace=indent,eol,start                    " backspace acts as normal
+set clipboard=unnamed                             " vim saves to / takes from the system clipboard
+set conceallevel=0                                " don't try to conceal commands for brevity
 
 " Syntastic (Plugin)
 set statusline+=%#warningmsg#
@@ -75,21 +75,23 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
 
 " Vim-Latex (Plugin)
-let g:tex_flavor="latex"
+let g:Tex_flavor="latex"
 let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
 let g:Tex_DefaultTargetFormat="pdf"               " set target format to pdf and tell what reader to use
 let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf"
 let g:Tex_ViewRule_pdf="Preview"
 let g:Tex_GotoError=0                             " do not go to the location of the first error after compile
+let g:tex_conceal = ""                            " so vim doesn't try to conceal latex commands
 let Tex_FoldedSections=""                         " disable the automatic folding upon opening .tex file
 let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 
 " Vim-Slime (Plugin)
 let g:slime_target="tmux"
+let g:slime_python_ipython=1
 
 " indentLine (Plugin)
-let g:indentLine_setColors=0 " 0 means don't overwrite colorscheme
+let g:indentLine_setColors=1                      " 0 means don't overwrite colorscheme
 
 " }}}
 
@@ -98,37 +100,37 @@ let g:indentLine_setColors=0 " 0 means don't overwrite colorscheme
 
 " Text
 syntax on                                          " enables syntax processing
-set cursorline                                     " highlight current line
-set cursorcolumn                                   " highlight current column
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12 " must have unicode chars
+"set cursorline                                    " highlight current line
+"set cursorcolumn                                  " highlight current column
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13 " must have unicode chars
 set showmatch                                      " highlight matching for {[()]}
 
 " Colors
-colorscheme solarized                    " a nice color scheme
-set background=dark                      " background dark / light
-set t_Co=256                             " let it use all colors
+colorscheme solarized                              " a nice color scheme
+set background=dark                                " background dark / light
+set t_Co=256                                       " let it use all colors
 
 " Window
-set cmdheight=1             " command line height
-set columns=213 lines=94    " default size of window (when not in fullscreen)
-set laststatus=2            " status bar open by default
-set lazyredraw              " don't redraw mid macro
-set number                  " row numbering
-set relativenumber          " numbering is relative to selected line
-set numberwidth=5           " line-number margin width
+set cmdheight=1                                    " command line height
+set columns=150 lines=85                           " default size of window (when not in fullscreen)
+set laststatus=2                                   " status bar open by default
+set lazyredraw                                     " don't redraw mid macro
+set number                                         " row numbering
+set relativenumber                                 " numbering is relative to selected line
+set numberwidth=5                                  " line-number margin width
 if has("gui_running")
-    set guioptions -=m      " removes the menubar
-    set guioptions -=T      " removes the toolbar
+    set guioptions -=m                             " removes the menubar
+    set guioptions -=T                             " removes the toolbar
 endif
 
 " Airline (Plugin)
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
-let g:airline_powerline_fonts=1        " allow it to use powerline fonts / symbols
-if !exists('g:airline_symbols')        " makes sure it doesn't overwrite stuff
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts=1                    " allow it to use powerline fonts / symbols
+if !exists('g:airline_symbols')                    " makes sure it doesn't overwrite stuff
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '»'           " unicode symbols
+let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
@@ -145,7 +147,7 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_left_sep = ''           " powerline symbols
+let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
@@ -155,7 +157,7 @@ let g:airline_symbols.linenr = ''
 
 " NERDTree and TagBar (Plugins)
 let g:NERDTreeWinPos="left"
-let g:NERDTreeWinSize=35
+let g:NERDTreeWinSize=40
 let g:NERDTreeNodeDelimiter="\u00a0"
 let g:NERDTreeMapMenu='M'
 let g:tagbar_width=35
