@@ -197,6 +197,6 @@ noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 
 " delete buffer without messing up window configuration
-nnoremap <Leader>b :bp<CR>:bd #<CR>
+nnoremap <Leader>d :bp<CR>:bd #<CR>
 
 " }}}
