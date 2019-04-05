@@ -62,7 +62,7 @@ set splitright        " split window to the right
 " Miscellany
 set backspace=indent,eol,start " backspace acts as normal
 set clipboard=unnamed          " vim saves to / takes from the system clipboard
-conceallevel=0                 " don't try to conceal commands for brevity (problem mostly for latex files)
+set conceallevel=0             " don't try to conceal commands for brevity (problem mostly for latex files)
 
 " Syntastic (Plugin)
 set statusline+=%#warningmsg#
