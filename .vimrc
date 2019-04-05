@@ -17,7 +17,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 Plugin 'powerline/fonts'
-Plugin 'sickill/vim-monokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'Valloric/YouCompleteMe'
@@ -39,6 +38,7 @@ filetype indent on
 autocmd filetype latex,tex let b:did_indent=1
 autocmd filetype latex,tex setlocal indentexpr=
 autocmd filetype latex,tex setlocal spell spelllang=en_us
+autocmd filetype txt,latex,tex setlocal textwidth=100
 autocmd filetype qf wincmd J
 set encoding=utf-8
 
