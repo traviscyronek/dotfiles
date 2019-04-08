@@ -157,9 +157,10 @@ let g:airline_symbols.linenr = ''
 
 " NERDTree and TagBar (Plugins)
 let g:NERDTreeWinPos="left"
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=35
 let g:NERDTreeNodeDelimiter="\u00a0"
 let g:NERDTreeMapMenu='M'
+let g:NERDTreeMinimalUI=v:true
 let g:tagbar_width=35
 let g:tagbar_autofocus=0
 let g:tagbar_ctags_bin='/usr/local/Cellar/universal-ctags/HEAD-45968ef/bin/ctags'
