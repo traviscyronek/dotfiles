@@ -102,7 +102,7 @@ let g:indentLine_setColors=1                      " 0 means don't overwrite colo
 syntax on                                          " enables syntax processing
 "set cursorline                                    " highlight current line
 "set cursorcolumn                                  " highlight current column
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13 " must have unicode chars
+set guifont=Hack\ Nerd\ Font:h13                   " must have unicode chars
 set showmatch                                      " highlight matching for {[()]}
 
 " Colors
