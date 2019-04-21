@@ -107,7 +107,6 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 
 " Set default marks
-mark b ~/bin/
 mark h ~/
 
 
