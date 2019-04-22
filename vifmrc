@@ -248,7 +248,7 @@ filetype *.pdf
        \ open -a Preview.app,
        \ {Open in Skim}
        \ open -a Skim.app,
-fileviewer *.pdf pdftotext -nopgbrk %c -
+fileviewer *.pdf echo "Content Can't Be Previewed:"
 
 
 " PostScript
