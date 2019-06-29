@@ -1,7 +1,7 @@
-" File:    .vimrc
-" Author:  Travis Cyronek
-" Date:    22 January 2019
-" Purpose: Vim configuration settings
+" File:      .vimrc
+" Author:    Travis Cyronek
+" Last Edit: 29 June 2019
+" Purpose:   vim configuration settings
 
 
 " ----- Plugin Management (Vundle) ----- " {{{
@@ -35,10 +35,10 @@ call vundle#end()
 " Filetype, Spell Check, and Encoding
 filetype plugin on
 filetype indent on
-autocmd filetype latex,tex let b:did_indent=1
-autocmd filetype latex,tex setlocal indentexpr=
-autocmd filetype latex,tex setlocal spell spelllang=en_us
-autocmd filetype txt,latex,tex setlocal textwidth=100
+autocmd filetype latex,plaintex let b:did_indent=1
+autocmd filetype latex,plaintex setlocal indentexpr=
+autocmd filetype latex,plaintex setlocal spell spelllang=en_us
+autocmd filetype text,latex,plaintex setlocal textwidth=100
 autocmd filetype qf wincmd J
 set encoding=utf-8
 
@@ -56,6 +56,7 @@ set shiftwidth=4                                  " make indents a single tab
 " Folding and Splitting
 set foldenable                                    " enables folding
 set foldmethod=marker                             " create folds with {{{ }}}
+set foldlevelstart=99                             " so the folds aren't closed upon file opening
 set splitbelow                                    " split window below
 set splitright                                    " split window to the right
 
