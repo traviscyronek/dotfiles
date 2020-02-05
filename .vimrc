@@ -4,7 +4,11 @@
 " Purpose:   vim configuration settings
 
 
-" ----- Plugin Management (Vundle) ----- " {{{
+" -------------------------------------- "
+"                                        "
+"       Plugin Management (Vundle)       "
+"                                        "
+" -------------------------------------- "
 
 set nocompatible
 filetype off
@@ -13,6 +17,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jpalardy/vim-slime'
+Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
@@ -27,10 +32,12 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'Yggdroot/indentLine'
 call vundle#end()
 
-" }}}
 
-
-" ----- Editing Settings ----- " {{{
+" ---------------------------- "
+"                              "
+"       Editing Settings       "
+"                              "
+" ---------------------------- "
 
 " Filetype, Spell Check, and Encoding
 filetype plugin on
@@ -38,7 +45,7 @@ filetype indent on
 autocmd filetype latex,plaintex let b:did_indent=1
 autocmd filetype latex,plaintex setlocal indentexpr=
 autocmd filetype latex,plaintex setlocal spell spelllang=en_us
-autocmd filetype text,latex,plaintex setlocal textwidth=100
+autocmd filetype text,tex,latex,plaintex setlocal textwidth=100
 autocmd filetype qf wincmd J
 set encoding=utf-8
 
@@ -56,7 +63,7 @@ set shiftwidth=4                                  " make indents a single tab
 " Folding and Splitting
 set foldenable                                    " enables folding
 set foldmethod=marker                             " create folds with {{{ }}}
-set foldlevelstart=99                             " so the folds aren't closed upon file opening
+set foldlevelstart=0                              " so the folds aren't closed upon file opening
 set splitbelow                                    " split window below
 set splitright                                    " split window to the right
 
@@ -94,16 +101,18 @@ let g:slime_python_ipython=1
 " indentLine (Plugin)
 let g:indentLine_setColors=1                      " 0 means don't overwrite colorscheme
 
-" }}}
 
-
-" ----- User Interface ----- " {{{
+" -------------------------- "
+"                            "
+"       User Interface       "
+"                            "
+" -------------------------- "
 
 " Text
 syntax on                                          " enables syntax processing
 "set cursorline                                    " highlight current line
 "set cursorcolumn                                  " highlight current column
-set guifont=Hack\ Nerd\ Font:h13                   " must have unicode chars
+set guifont=Hack\ Nerd\ Font:h13                   " has unicode symbols
 set showmatch                                      " highlight matching for {[()]}
 
 " Colors
@@ -157,7 +166,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " NERDTree and TagBar (Plugins)
-let g:NERDTreeWinPos="left"
+let g:NERDTreeWinPos="right"
 let g:NERDTreeWinSize=35
 let g:NERDTreeNodeDelimiter="\u00a0"
 let g:NERDTreeMapMenu='M'
@@ -165,20 +174,18 @@ let g:NERDTreeMinimalUI=v:true
 let g:tagbar_width=35
 let g:tagbar_autofocus=0
 let g:tagbar_ctags_bin='/usr/local/Cellar/universal-ctags/HEAD-45968ef/bin/ctags'
-"if has('gui_running')
-"else
-"    autocmd VimEnter * NERDTree " auto-open NERDTree
-"    autocmd VimEnter * Tagbar   " auto-open Tagbar
-"endif
 
 " Vim-Signature (Plugin)
 highlight SignColumn ctermbg=none
 highlight SignatureMarkText ctermbg=none ctermfg=White
 
-" }}}
 
 
-" ----- Custom Key Bindings ----- " {{{
+" ------------------------------- "
+"                                 "
+"       Custom Key Bindings       "
+"                                 "
+" ------------------------------- "
 
 " buffer switch, nerd tree toggle, tagbar toggle
 nnoremap <F2> :buffers<CR>:buffer<Space>
@@ -200,5 +207,3 @@ noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 
 " delete buffer without messing up window configuration
 nnoremap <Leader>d :bp<CR>:bd #<CR>
-
-" }}}
