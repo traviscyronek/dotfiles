@@ -1,8 +1,9 @@
 # File:    .bash_profile
 # Author:  Travis Cyronek
-# Date:    18 January 2019
+# Date:    5 April 2020
 
-# dotfiles
+
+# dotfiles (use "dotfiles" instead of "git" for dotfile management)
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Julia (type "julia")
