@@ -1,6 +1,5 @@
 # File:    .bash_profile
 # Author:  Travis Cyronek
-# Date:    5 April 2020
 
 
 # dotfiles (use "dotfiles" instead of "git" for dotfile management)

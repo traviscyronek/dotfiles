@@ -1,4 +1,9 @@
-# ----- compiled source ----- #
+# File: .gitignore
+# Author: Travis Cyronek
+# Purpose: let git know which files to ignore
+
+
+# ----- Compiled Source ----- #
 
 *.com
 *.class
@@ -8,14 +13,14 @@
 *.so
 
 
-# ----- temporary files ----- #
+# ----- Temporary Files ----- #
 
 *.swp
 *.swo
 *~
 
 
-# ----- packages ----- #
+# ----- Packages ----- #
 
 *.7z
 *.dmg
@@ -27,12 +32,12 @@
 *.zip
 
 
-# ----- logs ----- #
+# ----- Logs ----- #
 
 *.log
 
 
-# ----- OS generated files ----- #
+# ----- OS Generated Files ----- #
 
 .DS_Store*
 ehthumbs.db

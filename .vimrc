@@ -1,7 +1,5 @@
-" File:      .vimrc
-" Author:    Travis Cyronek
-" Last Edit: 29 June 2019
-" Purpose:   vim configuration settings
+" File:    .vimrc
+" Author:  Travis Cyronek
 
 
 " -------------------------------------- "
@@ -192,7 +190,6 @@ highlight SignatureMarkText ctermbg=none ctermfg=White
 
 " buffer switch, nerd tree toggle, tagbar toggle
 nnoremap <F2> :buffers<CR>:buffer<Space>
-nnoremap <Leader><F2> :TagbarToggle<CR>
 nnoremap <Tab><F2> :NERDTreeToggle<CR>
 
 " syntastic syntax toggles, delete trailing whitespace
