@@ -1,0 +1,3 @@
+# File:   .condarc
+# Author: Travis Cyronek
+auto_activate_base: false
