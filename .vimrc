@@ -1,7 +1,3 @@
-" File:    .vimrc
-" Author:  Travis Cyronek
-
-
 " -------------------------------------- "
 "                                        "
 "       Plugin Management (Vundle)       "
