@@ -2,7 +2,7 @@
 # Author: Travis Cyronek
 
 # enable vi-like keybindings, and disable the (ugly) vim-mode prompt
-#fish_vi_key_bindings
+fish_vi_key_bindings
 #function fish_mode_prompt
 #end
 
