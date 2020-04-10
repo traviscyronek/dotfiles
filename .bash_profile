@@ -1,7 +1,6 @@
 # File:   .bash_profile
 # Author: Travis Cyronek
 
-
 # dotfiles (use "dotfiles" instead of "git" for dotfile management)
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
