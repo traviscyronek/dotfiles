@@ -184,9 +184,9 @@ highlight SignatureMarkText ctermbg=none ctermfg=White
 "                                 "
 " ------------------------------- "
 
-" buffer switch, nerd tree toggle, tagbar toggle
+" buffer switch, nerd tree toggle
 nnoremap <F2> :buffers<CR>:buffer<Space>
-nnoremap <Tab><F2> :NERDTreeToggle<CR>
+nnoremap <Leader><F2> :NERDTreeToggle<CR>
 
 " syntastic syntax toggles, delete trailing whitespace
 nnoremap <F3> :SyntasticCheck<CR>
@@ -200,6 +200,3 @@ nnoremap <Leader><F4> :call Tex_ViewLaTeX()<CR>
 " smooth scrolling
 noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-
-" delete buffer without messing up window configuration
-nnoremap <Leader>d :bp<CR>:bd #<CR>
