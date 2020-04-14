@@ -25,7 +25,6 @@ Plugin 'vifm/vifm.vim'                    " can call Vifm from within vim
 Plugin 'vim-airline/vim-airline'          " statusline
 Plugin 'vim-airline/vim-airline-themes'   " additional statusline themes
 Plugin 'vim-latex/vim-latex'              " compile latex in vim
-Plugin 'vim-syntastic/syntastic'          " syntax error checker
 Plugin 'Yggdroot/indentLine'              " show indent lines
 call vundle#end()
 
@@ -68,16 +67,6 @@ set splitright                                    " split window to the right
 set backspace=indent,eol,start                    " backspace acts as normal
 set clipboard=unnamed                             " vim saves to / takes from the system clipboard
 set conceallevel=0                                " don't try to conceal commands for brevity
-
-" Syntastic (Plugin)
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
 
 " Vim-Latex (Plugin)
 let g:Tex_flavor="latex"
@@ -188,10 +177,8 @@ highlight SignatureMarkText ctermbg=none ctermfg=White
 nnoremap <F2> :buffers<CR>:buffer<Space>
 nnoremap <Leader><F2> :NERDTreeToggle<CR>
 
-" syntastic syntax toggles, delete trailing whitespace
-nnoremap <F3> :SyntasticCheck<CR>
-nnoremap <Leader><F3> :SyntasticReset<CR>
-nnoremap <Tab><F3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><CR>
+" delete trailing whitespace
+nnoremap <F3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><CR>
 
 " compile latex, open viewer
 nnoremap <F4> :call Tex_RunLaTeX()<CR>
