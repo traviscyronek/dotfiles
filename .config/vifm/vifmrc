@@ -191,15 +191,6 @@ nnoremap ,C :!mvim --remote-tab-silent $MYVIFMRC &<cr>
 nnoremap ,w :set wrap!<cr>
 
 
-" Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
-
-
 
 " --------------------- "
 "                       "
@@ -254,12 +245,12 @@ filetype *.djvu open -a MacDjView.app
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
-       \ {Play using MPlayerX}
-       \ open -a MPlayerX.app,
-       \ {Open in iTunes}
-       \ open -a iTunes.app,
        \ {Open in QuickTime Player}
        \ open -a QuickTime\ Player.app,
+       \ {Open in iTunes}
+       \ open -a iTunes.app,
+       \ {Play using MPlayerX}
+       \ open -a MPlayerX.app,
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
@@ -419,45 +410,3 @@ set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.m
 set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
-
-
-
-" ---------------------- "
-"                        "
-"       Miscellany       "
-"                        "
-" ---------------------- "
-
-" Examples of configuring both panels
-"
-" Customize view columns a bit (enable ellipsis for truncated file names)
-"
-" set viewcolumns=-{name}..,6{}.
-
-" Filter-out build and temporary files
-"
-" filter! /^.*\.(lo|o|d|class|py[co])$|.*~$/
-"
-"
-" Various customization examples
-
-" Use ag (the silver searcher) instead of grep
-"
-" set grepprg='ag --line-numbers %i %a %s'
-
-" Add additional place to look for executables
-"
-" let $PATH = $HOME.'/bin/fuse:'.$PATH
-
-" Block particular shortcut
-"
-" nnoremap <left> <nop>
-"
-" Export IPC name of current instance as environment variable and use it to
-" communicate with the instance later.
-"
-" It can be used in some shell script that gets run from inside vifm, for
-" example, like this:
-"     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
-"
-" let $VIFM_SERVER_NAME = v:servername
