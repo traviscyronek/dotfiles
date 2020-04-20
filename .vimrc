@@ -88,11 +88,11 @@ let g:slime_python_ipython=1
 let g:indentLine_setColors=1                      " 0 means don't overwrite colorscheme
 
 
-" -------------------------- "
-"                            "
-"       User Interface       "
-"                            "
-" -------------------------- "
+" ----------------------- "
+"                         "
+"       UI Settings       "
+"                         "
+" ----------------------- "
 
 " Text
 syntax on                                          " enables syntax processing
