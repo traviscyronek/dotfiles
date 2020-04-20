@@ -1,0 +1,3 @@
+color "type=HEADINGS bold=1 fg=WHITE bg=BLACK"
+color "type=CELL_SELECTION bold=1 fg=BLACK bg=WHITE"
+color "type=MODE bold=1 fg=WHITE bg=DEFAULT_COLOR"
