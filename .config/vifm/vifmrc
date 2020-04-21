@@ -38,9 +38,9 @@ mark h ~/
 set sortnumbers
 set relativenumber
 colorscheme solarized-dark
-set timefmt=%m/%d\ %H:%M
+set timefmt=%Y-%m-%d\ %H:%M
 set scrolloff=4
-set statusline=" %15s %20d "
+set statusline="file = %-35t     size = %-10s     last modified = %-20d"
 
 " Getting filetype icons to display in vifm
 set classify=' :dir:/, :exe:, :reg:, :link:'
