@@ -17,7 +17,6 @@ Plugin 'JuliaEditorSupport/julia-vim'     " .jl file support
 Plugin 'kien/ctrlp.vim'                   " fuzzy file searcher
 Plugin 'kshenoy/vim-signature'            " show marks in gutter
 Plugin 'powerline/fonts'                  " fonts for status line
-Plugin 'scrooloose/nerdtree'              " in-window file tree
 Plugin 'terryma/vim-smooth-scroll'        " allows adjustment of scroll speed
 Plugin 'tpope/vim-fugitive'               " git integration
 Plugin 'Valloric/YouCompleteMe'           " autocomplete
@@ -40,7 +39,7 @@ filetype plugin on
 filetype indent on
 autocmd filetype latex,plaintex let b:did_indent=1
 autocmd filetype latex,plaintex setlocal indentexpr=
-autocmd filetype latex,plaintex setlocal spell spelllang=en_us
+autocmd filetype text,tex,latex,plaintex setlocal spell spelllang=en_us
 autocmd filetype text,tex,latex,plaintex setlocal textwidth=100
 autocmd filetype qf wincmd J
 set encoding=utf-8
@@ -72,13 +71,13 @@ set conceallevel=0                                " don't try to conceal command
 let g:Tex_flavor="latex"
 let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
 let g:Tex_DefaultTargetFormat="pdf"               " set target format to pdf and tell what reader to use
-let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf"
-let g:Tex_ViewRule_pdf="Preview"
+let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf" " checks to see if bibtex needs to be run
+let g:Tex_ViewRule_pdf="Preview"                  " open in preview
 let g:Tex_GotoError=0                             " do not go to the location of the first error after compile
-let g:tex_conceal = ""                            " so vim doesn't try to conceal latex commands
+let g:tex_conceal=""                              " so vim doesn't try to conceal latex commands
 let g:tex_indent_brace=0
 let g:tex_indent_item=0
-let g:tex_indent_and=1
+let g:tex_indent_and=0
 let Tex_FoldedSections=""                         " disable the automatic folding upon opening .tex file
 let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
@@ -175,9 +174,8 @@ highlight SignatureMarkText ctermbg=none ctermfg=White
 "                                 "
 " ------------------------------- "
 
-" buffer switch, nerd tree toggle
+" buffer switch
 nnoremap <F2> :buffers<CR>:buffer<Space>
-nnoremap <Leader><F2> :NERDTreeToggle<CR>
 
 " delete trailing whitespace
 nnoremap <F3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><CR>
