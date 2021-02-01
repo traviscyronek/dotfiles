@@ -19,7 +19,6 @@ Plugin 'kshenoy/vim-signature'            " show marks in gutter
 Plugin 'powerline/fonts'                  " fonts for status line
 Plugin 'terryma/vim-smooth-scroll'        " allows adjustment of scroll speed
 Plugin 'tpope/vim-fugitive'               " git integration
-Plugin 'Valloric/YouCompleteMe'           " autocomplete
 Plugin 'vifm/vifm.vim'                    " can call Vifm from within vim
 Plugin 'vim-airline/vim-airline'          " statusline
 Plugin 'vim-airline/vim-airline-themes'   " additional statusline themes
