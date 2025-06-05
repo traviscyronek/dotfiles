@@ -53,7 +53,7 @@ tabline.setup({
     },
     tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
     tabline_x = { '' },
-    tabline_y = { 'datetime' },
+    tabline_y = { 'cpu', 'ram' },
     tabline_z = { 'domain' },
   },
   extensions = {},
