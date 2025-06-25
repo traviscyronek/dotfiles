@@ -10,9 +10,9 @@ filetype off
 set shellslash
 
 if has("gui_running")
-    set rtp+=C:\users\travis\.vim\bundle\Vundle.vim
+    set rtp+=C:\users\cyronek_t\.vim\bundle\Vundle.vim
 else
-    set rtp+=/c/users/travis/.vim/bundle/Vundle.vim
+    set rtp+=/c/users/cyronek_t/.vim/bundle/Vundle.vim
 endif
 
 call vundle#begin()
@@ -55,7 +55,7 @@ call vundle#end()
 " -------------------- "
 
 
-" Filetype, Spell Check, and Encoding
+" Filetype Stuff
 filetype plugin on
 filetype indent on
 autocmd BufNewFile,BufRead *.md set filetype=markdown
@@ -64,6 +64,7 @@ autocmd filetype latex,plaintex setlocal indentexpr=
 autocmd filetype text,tex,latex,plaintex,markdown setlocal spell spelllang=en_us
 autocmd filetype text,tex,latex,plaintex,markdown setlocal textwidth=100
 autocmd filetype qf wincmd J
+let g:pyindent_open_paren = 'shiftwidth()'
 
 " Text
 syntax on                                         " enables syntax processing
@@ -76,6 +77,9 @@ set expandtab                                     " sets tabs to spaces
 set softtabstop=4                                 " number of spaces in tab when editing
 set tabstop=4                                     " number of visual spaces per tab
 set shiftwidth=4                                  " make indents a single tab
+set foldenable                                    " enables folding
+set foldmethod=marker                             " create folds with {{{ }}}
+set foldlevelstart=0                              " so the folds aren't closed upon file opening
 "set cursorline                                   " highlight current line
 "set cursorcolumn                                 " highlight current column
 
@@ -84,6 +88,8 @@ colorscheme solarized                             " a nice colorscheme
 set background=dark                               " background dark / light
 set t_Co=256                                      " let the terminal use all colors
 set vb t_vb=
+set splitbelow                                    " split window below
+set splitright                                    " split window to the right
 set noequalalways                                 " don't equalize window sizes
 set cmdheight=1                                   " command line height
 set laststatus=2                                  " status bar open by default
@@ -98,7 +104,7 @@ if has("gui_running")
     set guioptions -=l                            " removes the left-hand scrollbar
     set guioptions -=L
 endif
-"set lines=55 columns=130
+set lines=50 columns=110
 
 " Miscellany
 set encoding=utf-8
@@ -109,14 +115,9 @@ set clipboard=unnamed                             " vim saves to / takes from th
 set conceallevel=0                                " don't try to conceal commands for brevity
 set selection=inclusive                           " visual select under the cursor
 set belloff=all                                   " disable notification bells
-set foldenable                                    " enables folding
-set foldmethod=marker                             " create folds with {{{ }}}
-set foldlevelstart=0                              " so the folds aren't closed upon file opening
-set splitbelow                                    " split window below
-set splitright                                    " split window to the right
 
 " TagBar (Plugin)
-let g:tagbar_position='left'
+let g:tagbar_position='right'
 let g:tagbar_width=30
 
 " NERDTree (Plugin)
@@ -161,8 +162,18 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " Vim-Signature (Plugin)
-highlight SignColumn ctermbg=none
-highlight SignatureMarkText ctermbg=none ctermfg=White
+highlight SignColumn guibg=#073642 ctermbg=none
+highlight SignatureMarkText guibg=#073642 ctermbg=none ctermfg=White
+
+" Vim-Gitgutter (Plugin)
+highlight GitGutterAdd    guibg=#073642 ctermbg=none ctermfg=2
+highlight GitGutterChange guibg=#073642 ctermbg=none ctermfg=3
+highlight GitGutterDelete guibg=#073642 ctermbg=none ctermfg=1
+
+" Vim-Slime (Plugin)
+let g:slime_target="wezterm"
+"let g:slime_target="vimterminal"
+"let g:slime_python_ipython=1
 
 " Vim-Latex (Plugin)
 let g:Tex_flavor="latex"
@@ -185,13 +196,6 @@ let Tex_FoldedMisc=""
 "let g:vimtex_syntax_conceal_disable=1
 "let g:vimtex_quickfix_open_on_warning=0
 
-" Vim-Slime (Plugin)
-let g:slime_target="vimterminal"
-"let g:slime_python_ipython=1
-
-" VimWiki
-"let g:vimwiki_list = [{'syntax': 'markdown', 'est': 'md'}]
-
 
 " ------------------------------- "
 "                                 "
@@ -207,7 +211,7 @@ nnoremap <Leader><F1> :source ~/.vimrc<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <Leader><F2> :TagbarToggle<CR>
 
-" buffer switch
+" buffer list and switch
 nnoremap bl :buffers<CR>:buffer<Space>
 
 " toggle rainbow brackets
