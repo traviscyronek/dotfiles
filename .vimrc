@@ -166,9 +166,9 @@ highlight SignColumn guibg=#073642 ctermbg=none
 highlight SignatureMarkText guibg=#073642 ctermbg=none ctermfg=White
 
 " Vim-Gitgutter (Plugin)
-highlight GitGutterAdd    guibg=#073642 ctermbg=none ctermfg=2
-highlight GitGutterChange guibg=#073642 ctermbg=none ctermfg=3
-highlight GitGutterDelete guibg=#073642 ctermbg=none ctermfg=1
+highlight GitGutterAdd    guibg=#073642 guifg=009900 ctermbg=none ctermfg=2
+highlight GitGutterChange guibg=#073642 guifg=bbbb00 ctermbg=none ctermfg=3
+highlight GitGutterDelete guibg=#073642 guifg=ff2222 ctermbg=none ctermfg=1
 
 " Vim-Slime (Plugin)
 let g:slime_target="wezterm"
