@@ -1,51 +1,40 @@
-" -------------------------------------- "
-"                                        "
-"       Plugin Management (Vundle)       "
-"                                        "
-" -------------------------------------- "
+" ---------------------------------------- "
+"                                          "
+"       Plugin Management (vim-plug)       "
+"                                          "
+" ---------------------------------------- "
 
 
-set nocompatible
-filetype off
-set shellslash
-
-if has("gui_running")
-    set rtp+=C:\users\cyronek_t\.vim\bundle\Vundle.vim
-else
-    set rtp+=/c/users/cyronek_t/.vim/bundle/Vundle.vim
-endif
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'                     " plugin manager, must be first
+call plug#begin()
 
 " Editing
-Plugin 'frazrepo/vim-rainbow'                     " rainbow brackets
-Plugin 'kshenoy/vim-signature'                    " show marks in gutter
-Plugin 'jpalardy/vim-slime'                       " to send code to other windows
-Plugin 'terryma/vim-smooth-scroll'                " allows adjustment of scroll speed
-Plugin 'tpope/vim-surround'                       " quoting/parenthesizing made simple
+Plug 'frazrepo/vim-rainbow'                     " rainbow brackets
+Plug 'kshenoy/vim-signature'                    " show marks in gutter
+Plug 'jpalardy/vim-slime'                       " to send code to other windows
+Plug 'terryma/vim-smooth-scroll'                " allows adjustment of scroll speed
+Plug 'tpope/vim-surround'                       " quoting/parenthesizing made simple
 
 " User Interface
-Plugin 'powerline/fonts'                          " fonts for status line
-Plugin 'Yggdroot/indentLine'                      " show indent lines
-Plugin 'vim-airline/vim-airline'                  " statusline
-Plugin 'vim-airline/vim-airline-themes'           " additional statusline themes
-Plugin 'altercation/vim-colors-solarized'         " best color scheme
+Plug 'powerline/fonts'                          " fonts for status line
+Plug 'Yggdroot/indentLine'                      " show indent lines
+Plug 'vim-airline/vim-airline'                  " statusline
+Plug 'vim-airline/vim-airline-themes'           " additional statusline themes
+Plug 'altercation/vim-colors-solarized'         " best color scheme
 
 " File Searching
-Plugin 'kien/ctrlp.vim'                           " fuzzy file searcher
-Plugin 'preservim/nerdtree'                       " project drawer
-Plugin 'preservim/tagbar'                         " viewer for file's tags
+Plug 'kien/ctrlp.vim'                           " fuzzy file searcher
+Plug 'preservim/nerdtree'                       " project drawer
+Plug 'preservim/tagbar'                         " viewer for file's tags
 
 " Language Support
-Plugin 'tpope/vim-fugitive'                       " git integration
-Plugin 'airblade/vim-gitgutter'                   " shows git differences in the gutter
-Plugin 'JuliaEditorSupport/julia-vim'             " .jl file support
-Plugin 'vim-latex/vim-latex'                      " latex support
-"Plugin 'lervag/vimtex'                           " another latex support
-Plugin 'vimwiki/vimwiki'                          " personal wiki package
+Plug 'tpope/vim-fugitive'                       " git integration
+Plug 'airblade/vim-gitgutter'                   " shows git differences in the gutter
+Plug 'JuliaEditorSupport/julia-vim'             " .jl file support
+"Plug 'vim-latex/vim-latex'                      " latex support
+Plug 'lervag/vimtex'                            " another latex support
+Plug 'vimwiki/vimwiki'                          " personal wiki package
 
-call vundle#end()
+call plug#end()
 
 
 " -------------------- "
@@ -166,9 +155,9 @@ highlight SignColumn guibg=#073642 ctermbg=none
 highlight SignatureMarkText guibg=#073642 ctermbg=none ctermfg=White
 
 " Vim-Gitgutter (Plugin)
-highlight GitGutterAdd    guibg=#073642 guifg=009900 ctermbg=none ctermfg=2
-highlight GitGutterChange guibg=#073642 guifg=bbbb00 ctermbg=none ctermfg=3
-highlight GitGutterDelete guibg=#073642 guifg=ff2222 ctermbg=none ctermfg=1
+highlight GitGutterAdd    guibg=#073642 guifg=#009900 ctermbg=none ctermfg=2
+highlight GitGutterChange guibg=#073642 guifg=#bbbb00 ctermbg=none ctermfg=3
+highlight GitGutterDelete guibg=#073642 guifg=#ff2222 ctermbg=none ctermfg=1
 
 " Vim-Slime (Plugin)
 let g:slime_target="wezterm"
@@ -176,25 +165,25 @@ let g:slime_target="wezterm"
 "let g:slime_python_ipython=1
 
 " Vim-Latex (Plugin)
-let g:Tex_flavor="latex"
-let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
-let g:Tex_DefaultTargetFormat="pdf"               " set target format to pdf and tell what reader to use
-let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf" " checks to see if bibtex needs to be run
-let g:Tex_ViewRule_pdf="SumatraPDF"               " open in SumataPDF
-let g:Tex_GotoError=0                             " do not go to the location of the first error after compile
-let g:tex_conceal=""                              " so vim doesn't try to conceal latex commands
-let g:Tex_EnvironmentMaps=0                       " turn off environment macros
-let g:tex_indent_brace=0
-let g:tex_indent_item=0
-let g:tex_indent_and=0
-let Tex_FoldedSections=""                         " disable the automatic folding upon opening .tex file
-let Tex_FoldedEnvironments=""
-let Tex_FoldedMisc=""
+"let g:Tex_flavor="latex"
+"let g:Tex_CompileRule_pdf="pdflatex --interaction=nonstopmode $*"
+"let g:Tex_DefaultTargetFormat="pdf"               " set target format to pdf and tell what reader to use
+"let g:Tex_MultipleCompileFormats="pdf,bibtex,pdf" " checks to see if bibtex needs to be run
+"let g:Tex_ViewRule_pdf="SumatraPDF"               " open in SumataPDF
+"let g:Tex_GotoError=0                             " do not go to the location of the first error after compile
+"let g:tex_conceal=""                              " so vim doesn't try to conceal latex commands
+"let g:Tex_EnvironmentMaps=0                       " turn off environment macros
+"let g:tex_indent_brace=0
+"let g:tex_indent_item=0
+"let g:tex_indent_and=0
+"let Tex_FoldedSections=""                         " disable the automatic folding upon opening .tex file
+"let Tex_FoldedEnvironments=""
+"let Tex_FoldedMisc=""
 
 " VimTeX (Plugin)
-"let g:vimtex_compile_progname='latexmk'
-"let g:vimtex_syntax_conceal_disable=1
-"let g:vimtex_quickfix_open_on_warning=0
+let g:vimtex_compile_progname='latexmk'
+let g:vimtex_syntax_conceal_disable=1
+let g:vimtex_quickfix_open_on_warning=0
 
 
 " ------------------------------- "
@@ -221,10 +210,10 @@ nnoremap <F3> :RainbowToggle<CR>
 nnoremap <Leader><F3> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar><CR>
 
 " latex
-nnoremap <F4> :call Tex_RunLaTeX()<CR>
-nnoremap <Leader><F4> :call Tex_ViewLaTeX()<CR>
-"nnoremap <F4> :VimtexCompileSS<CR>
-"nnoremap <Leader><F4> :VimtexCompile<CR>
+"nnoremap <F4> :call Tex_RunLaTeX()<CR>
+"nnoremap <Leader><F4> :call Tex_ViewLaTeX()<CR>
+nnoremap <F4> :VimtexCompileSS<CR>
+nnoremap <Leader><F4> :VimtexCompile<CR>
 
 " smooth scrolling
 noremap <silent><C-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
